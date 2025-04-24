@@ -1,0 +1,447 @@
+# Ülesanded
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1.2, >=latex]
+\draw[->, thick] (0, 0) -- (3, 0) node[below right] {\textbf{jou}};
+\end{tikzpicture}
+\caption{asdf}
+\end{figure}
+
+```{r echo=FALSE, results='asis'}
+
+# librarian::shelf(c(
+#   "tablet"
+# ))
+# writeLines("
+# \\begin{tikzpicture}[scale=1.2,>=latex]
+# 
+# % Vektor A
+# \\draw[->, thick] (0,0) -- (3,0) node[below right] {textbf{A}};
+# 
+# % Vektor B
+# \\draw[->, thick] (0,0) -- (0,3) node[above left] {B};
+# 
+# % Joon C (ilma nooleotsata)
+# \\draw[thick] (0,-1) -- (3,-1);
+# \\node[below] at (3,-1) {C};
+# 
+# \\end{tikzpicture}
+# ", "rmd/pilt.tex") 
+# writeLines(as.ltable(head(Theoph)), file)
+# tex2pdf(file)
+# 
+# tasks <- list(
+# #   list(goal = 1, level = 1, task = "Millise tähistusega on joonisel esitatud vektorid? Põhjenda vastust!
+# # \\begin{figure}[h!]
+# # \\includegraphics{[]}
+# # \\end{figure}
+# # ")
+#   list(goal = 1, level = 1, task = paste0("asdf ", include_external_graphics("rmd/orange-1-camp.jpeg")))
+# #   list(goal = 1, level = 1, task = "Millise tähistusega on joonisel esitatud vektorid? Põhjenda vastust!
+# # \\begin{figure}[h!]
+# # \\centering
+# # \\begin{tikzpicture}[scale=1.2,>=latex]
+# # 
+# # % Vektor A
+# # \\draw[->, thick] (0,0) -- (3,0) node[below right] \\{textbf\\{A\\\\}\\\\};
+# # 
+# # % Vektor B
+# # \\draw[->, thick] (0,0) -- (0,3) node[above left] {B};
+# # 
+# # % Joon C (ilma nooleotsata)
+# # \\draw[thick] (0,-1) -- (3,-1);
+# # \\node[below] at (3,-1) {C};
+# # 
+# # \\end{tikzpicture}
+# # \\caption{Kolm noolt: $A$ ja $B$ on vektorid, $C$ ei ole, kuna puudub suund.}
+# # \\end{figure}
+# # ")
+# )
+# 
+# dataframe_tasks <- do.call(rbind, lapply(tasks, as.data.frame, stringsAsFactors = FALSE))
+# # print(dataframe_tasks)
+# b <- dataframe_tasks[1, ]
+# arranged_sampled_tasks <- dplyr::arrange(b, goal)
+# # print(arranged_sampled_tasks)
+# tasks_goal_level <- subset(arranged_sampled_tasks)
+# # print(tasks_goal_level)
+# cat("jobenijou \n\n")
+# 
+# cat("a. ", tasks_goal_level[1, ]$task, "\n\n", sep = "")
+
+```
+
+
+```{r label="tasks", echo=FALSE, results='asis'}
+librarian::shelf(c(
+  "profvis"
+))
+# profvis({
+goals <- list(
+  list(
+    goal = "selgitab vektori mõistet, leiab vektori koordinaadid ja kahe punkti vahelise kauguse tasandil",
+    level = 2
+  ),
+  list(
+    goal = "liidab ja lahutab vektoreid ning korrutab vektorit arvuga nii geomeetriliselt kui ka
+koordinaatkujul",
+    level = 3
+  )
+)
+
+tasks <- list(
+  list(goal = 1, level = 1, task = "Defineeri vektor!"),
+  list(goal = 1, level = 1, task = "Mis on suunatud lõik?"),
+  list(goal = 1, level = 1, task = "Millist suurust iseloomustatakse suuruse ja suunaga?"),
+  list(goal = 1, level = 1, task = "Millised omadused on vektoril?"),
+  list(goal = 1, level = 2, task = "Esita näide vektori kohta!"),
+  list(goal = 1, level = 2, task = "Vaata allolevaid väiteid ja märgi, millised neist kirjeldavad vektorit:\\leavevmode\\
+  \\begin{itemize}
+    \\item[\\Square] Vektoril on ainult suurus.
+    \\item[\\Square] Vektoril on suurus ja suund.
+    \\item[\\Square] Näide vektorist on temperatuur.
+    \\item[\\Square] Näide vektorist on liikumiskiirus.
+  \\end{itemize}"),
+  list(goal = 1, level = 2, task = "Mille poolest erinevad skalaar ja vektor?"),
+  list(goal = 1, level = 2, task = "Esita näide skalaari kohta!"),
+  list(goal = 1, level = 2, task = "Märgista, kui väide on tõene:\\leavevmode\\
+  \\begin{itemize}
+    \\item[\\Square] Vektoril on ainult suund.
+    \\item[\\Square] Vektorit saab esitada noolega.
+    \\item[\\Square] Kiirus ilma suunata on vektor.
+    \\item[\\Square] Raskusjõud on vektor.
+    \\item[\\Square] Mass on vektor.
+  \\end{itemize}"),
+  list(goal = 1, level = 2, task = "Märgista, kui tegemist on vektoriga:\\leavevmode\\
+  \\begin{itemize}
+    \\item[\\Square] kiirus,
+    \\item[\\Square] aeg,
+    \\item[\\Square] mass,
+    \\item[\\Square] raskusjõud,
+    \\item[\\Square] temperatuur,
+    \\item[\\Square] kiirendus.
+  \\end{itemize}"),
+#   list(goal = 1, level = 2, task = "Millise tähistusega on joonisel esitatud vektorid? Põhjenda vastust!\\leavevmode\\
+# \\centering
+# \\begin{tikzpicture}[scale=1.2,>=latex]
+# 
+# % Vektor A
+# \\draw[->, thick] (0,0) -- (3,0) node[below right] {\\textbf{A}};
+# 
+# % Vektor B
+# \\draw[->, thick] (0,0) -- (0,3) node[above left] {B};
+# 
+# % Joon C (ilma nooleotsata)
+# \\draw[thick] (0,-1) -- (3,-1);
+# \\node[below] at (3,-1) {C};
+# 
+# \\end{tikzpicture}
+# "),
+  list(goal = 1, level = 2, task = "Millise tähistusega on joonisel  esitatud vektorid? Põhjenda vastust!\\leavevmode\\
+  \\begin{figure}[ht!]
+\\centering
+\\begin{tikzpicture}[scale=1.2,>=latex]
+
+% Vektor A
+\\draw[->, thick] (0,0) -- (3,0) node[below right] {\\textbf{A}};
+
+% Vektor B
+\\draw[->, thick] (0,0) -- (0,3) node[above left] {\\textbf{B}};
+
+% Joon C (ilma nooleotsata)
+\\draw[thick] (0,-1) -- (3,-1);
+\\node[below] at (3,-1) {C};
+
+\\end{tikzpicture}
+\\caption{Vektorite eristamine.}
+\\end{figure}
+"),
+  list(goal = 2, level = 1, task = "Mis on nurgakraad?"),
+  list(goal = 2, level = 1, task = "Kui suur on sirgnurk radiaanides ja miks?"),
+  list(goal = 2, level = 1, task = "Kui suur on sirgnurk kraadides ja miks?"),
+  list(goal = 2, level = 1, task = "Mis on radiaan?")
+)
+
+# Putting together all the tasks
+
+tasks <- c(
+  tasks
+)
+
+# print(" tasks ")
+# View(tasks)
+# print(" lõpp tasks ")
+# })
+
+
+
+# Kontrolli, kas tasks sees on kusagil vektor task-väljal
+# probleemsed <- sapply(tasks, function(x) length(x$task) > 1)
+# which(probleemsed) # annab indeksi, kus probleem tekib
+# print(" proble ")
+# print(tasks[probleemsed]) # kuvab täpse probleemi koha
+# print(" lõpp proble ")
+
+dataframe_tasks <- do.call(rbind, lapply(tasks, as.data.frame, stringsAsFactors = FALSE))
+number_goals <- length(goals)
+
+librarian::shelf(c(
+  "dplyr"
+))
+
+number_of_pupils <- 64
+
+goals_in_use <- unique(dataframe_tasks$goal)
+# print(" dataframe_tasks ")
+# print(dataframe_tasks)
+# print(" lõpp dataframe_tasks ")
+number_of_goals_in_use <- length(goals_in_use)
+random_sample_df <- function(df, new_size) { # 64
+  base_size <- floor(new_size / nrow(df))  
+  remaining <- new_size %% nrow(df)
+
+  repeated_df <- df[rep(1:nrow(df), each = base_size), , drop = FALSE]
+
+  extra_rows <- df[sample(1:nrow(df), remaining, replace = FALSE), , drop = FALSE]
+
+  final_df <- rbind(repeated_df, extra_rows)
+  final_df <- final_df[sample(1:nrow(final_df)), , drop = FALSE]
+
+  return(final_df)
+}
+
+number_of_tasks_at_level_per_pupil <- 8 # 8
+# number_of_tasks <- number_of_pupils * number_of_tasks_at_level_per_pupil
+ 
+number_of_tasks <- nrow(dataframe_tasks)
+df_segatud <- dataframe_tasks[sample(number_of_tasks), ]
+arranged_sampled_tasks <- arrange(df_segatud, goal, level)
+# print(" arranged_sampled_tasks ")
+# View(arranged_sampled_tasks)
+# print(" lõpp arranged_sampled_tasks ")
+# })
+
+
+
+# chosen_tasks <- c()
+# # })
+# 
+# 
+# for (index_of_task in 1:number_of_tasks) { # 1-512
+# 
+#   for (index in 1:number_of_goals_in_use) {
+#     tasks_of_goal <- subset(arranged_sampled_tasks, goals_in_use[index] == `goal`)
+#     levels_in_use <- unique(tasks_of_goal$level)
+#     number_of_levels_in_use <- length(levels_in_use)
+#     
+#     for (index_of_level in 1:number_of_levels_in_use) {
+#       tasks_at_level <- subset(tasks_of_goal, levels_in_use[index_of_level] == `level`)
+#       print(" number tasks_at_level ")
+#       print(goals_in_use[index])
+#       print(levels_in_use[index_of_level])
+#       print(nrow(tasks_at_level))
+#       print(" lõpp number tasks_at_level ")
+#       # sampled_tasks_at_level <- random_sample_df(df = tasks_at_level, new_size = number_of_pupils)
+#       if (number_of_tasks_at_level_per_pupil > nrow(tasks_at_level)) {
+#         number_of_chosen_tasks_at_level <- nrow(tasks_at_level)
+#       } else {
+#         number_of_chosen_tasks_at_level <- number_of_tasks_at_level_per_pupil
+#       }
+#       if (length(chosen_tasks) > 0) {
+#         chosen_tasks <- rbind(chosen_tasks, tasks_at_level[1:number_of_chosen_tasks_at_level, ])
+#       } else {
+#         chosen_tasks <- tasks_at_level[1:number_of_chosen_tasks_at_level, ]
+#       }
+#       
+#     }
+#       
+#   }
+#   
+# }
+# print(" unique sampled_tasks ")
+# print(unique(sampled_tasks$task[grep("c\\(", sampled_tasks$task)]))
+# print(" lõpp unique ")
+# probleemsed_taskid <- sampled_tasks[grep("c\\(", sampled_tasks$task), ]
+# print(probleemsed_taskid)
+# print(" täitsa lõpp unique ")
+# sampled_tasks <- arrange(sampled_tasks, goal, level)
+# })
+
+```
+
+
+
+
+## Üks ülesanne õpilase kohta
+
+```{r label="list-of-tasks-one-per-pupil", echo=FALSE, results='asis'}
+# profvis({
+
+for (index_of_pupil in 1:number_of_pupils) {
+  cat(paste("### Test: ", index_of_pupil, ". õpilane\n\n", sep = ""))
+
+  for (index in 1:number_of_goals_in_use) {
+    # print(" index_goals_in_use ")
+    # print(index)
+    # print(" lõpp index_goals_in_use ")
+    cat(paste(
+      "**\\color[hsb]{0.",
+      goals[[goals_in_use[index]]]$level - 1,
+      ", 1, .75}{Õpiväljund:}** Õpilane ",
+      goals[[goals_in_use[index]]]$goal,
+      ".\n\n", 
+      sep = ""
+    ))
+    
+    # tasks_of_goal <- subset(chosen_tasks, goals_in_use[index] == `goal`)
+    # levels_in_use <- unique(x = tasks_of_goal$level)
+    # number_of_levels_in_use <- length(levels_in_use)
+
+    for (index_of_levels in 1:5) {
+      tasks_goal_level <- subset(arranged_sampled_tasks, index_of_levels == `level` & goals_in_use[index] == `goal`)
+      number_of_tasks_goal_level <- nrow(tasks_goal_level)
+      if (number_of_tasks_goal_level > 0) {
+        
+        cat(
+          "**",
+          index_of_levels,
+          ". taseme ülesanne:** ",
+          sep = ""
+        )
+      
+        cat(tasks_goal_level[index_of_pupil %% number_of_tasks_goal_level + 1, ]$task, "\n\n", sep = "")
+      }
+
+      # tasks_at_level <- subset(
+      #   tasks_of_goal,
+      #   levels_in_use[index_of_levels] == `level`
+      # )
+    }
+
+  }
+
+}
+
+# })
+
+```
+
+## Mitu ülesannet õpilase kohta
+
+```{r label="tasks-many-per-pupil", echo=FALSE, results='asis'}
+# profvis({
+
+for (index_of_pupil in 1:number_of_pupils) {
+  cat(paste("### Test: ", index_of_pupil, ". õpilane\n\n", sep = ""))
+
+  for (index in 1:number_of_goals_in_use) {
+    # print(" index_goals_in_use ")
+    # print(index)
+    # print(" lõpp index_goals_in_use ")
+    cat(paste(
+      "**\\color[hsb]{0.",
+      goals[[goals_in_use[index]]]$level - 1,
+      ", 1, .75}{Õpiväljund:}** Õpilane ",
+      goals[[goals_in_use[index]]]$goal,
+      ".\n\n", 
+      sep = ""
+    ))
+    
+    # tasks_of_goal <- subset(chosen_tasks, goals_in_use[index] == `goal`)
+    # levels_in_use <- unique(x = tasks_of_goal$level)
+    # number_of_levels_in_use <- length(levels_in_use)
+
+    for (index_of_levels in 1:5) {
+      tasks_goal_level <- subset(arranged_sampled_tasks, index_of_levels == `level` & goals_in_use[index] == `goal`)
+      number_of_tasks_goal_level <- nrow(tasks_goal_level)
+      if (number_of_tasks_goal_level > 1) {
+        
+        cat(
+          "**",
+          index_of_levels,
+          ". taseme ülesanded:**\n\n",
+          sep = ""
+        )
+      
+        # cat(tasks_goal_level[index_of_pupil %% number_of_tasks_goal_level + 1, ]$task, "\n\n", sep = "")
+      } else if (number_of_tasks_goal_level > 0) {
+        
+        cat(
+          "**",
+          index_of_levels,
+          ". taseme ülesanne:** ",
+          sep = ""
+        )
+        
+      }
+      
+      if (number_of_tasks_goal_level > 0) {
+        max_number_of_tasks <- 8 - 1
+        # cat("\\begin{enumerate}[label=\\alph*.]\n")
+        for (index_of_task_goal_level in 0:max_number_of_tasks) {
+          cat(index_of_pupil, "-", index, "-", index_of_levels, "-", index_of_task_goal_level, ". ", tasks_goal_level[(index_of_pupil + index_of_task_goal_level) %% number_of_tasks_goal_level + 1, ]$task, "\n\n", sep = "")
+        }
+        # cat("\\end{enumerate}\n")
+      }
+
+      # tasks_at_level <- subset(
+      #   tasks_of_goal,
+      #   levels_in_use[index_of_levels] == `level`
+      # )
+    }
+
+  }
+
+}
+# })
+# current_pupil <- 1
+# 
+# for (index_of_pupil in 1:number_of_pupils) {
+#   cat(paste("### Test: ", index_of_pupil, ". õpilane\n\n", sep = ""))
+# 
+#   for (index in 1:number_of_goals_in_use) {
+#     
+#     cat(paste(
+#       "**\\color[hsb]{0.",
+#       goals[[goals_in_use[index]]]$level - 1,
+#       ", 1, 1}{Õpiväljund:}** Õpilane ",
+#       goals[[goals_in_use[index]]]$goal,
+#       ".\n\n", 
+#       sep = ""
+#     ))
+# 
+#     tasks_of_goal <- subset(chosen_tasks, goals_in_use[index] == `goal`)
+#     levels_in_use <- unique(x = tasks_of_goal$level)
+#     number_of_levels_in_use <- length(levels_in_use)
+# 
+#     for (index_of_levels in 1:number_of_levels_in_use) {
+#           
+#       cat(
+#         "**",
+#         levels_in_use[index_of_levels],
+#         ". taseme ülesanded:**\n\n ",
+#         sep = ""
+#       )
+# 
+#       tasks_at_level <- subset(
+#         tasks_of_goal,
+#         levels_in_use[index_of_levels] == `level`
+#       )
+#       
+#       number_of_tasks_at_level <- nrow(tasks_at_level)
+#       last_task_for_pupil <- current_pupil + number_of_tasks_at_level_per_pupil - 1
+#       
+#       for (index_of_task in current_pupil:last_task_for_pupil) {
+#         cat(index_of_task, ". ", tasks_at_level[index_of_task, ]$task, "\n\n", sep = "")
+#       }
+#       
+#       current_pupil <- current_pupil + number_of_tasks_at_level_per_pupil
+#     }
+# 
+#   }
+# 
+# }
+
+```
+

@@ -1,0 +1,25 @@
+# Eneseanalüüs
+
+1.  Milline on minu eesmärk seoses Narva Täiskasvanute kooliga, st miks ma õpin Narva Täiskasvanute Koolis?
+
+    \vspace{0.2\textheight}
+
+2.  Mida ma olen siiamaani selle eesmärgi saavutamiseks teinud?
+
+    \vspace{0.2\textheight}
+
+3.  Mida ma olen veel valmis selle eesmärgi saavutamiseks tegema?
+
+    \vspace{0.2\textheight}
+
+4.  Mis mind takistab selle eesmärgi saavutamises?
+
+    \vspace{0.2\textheight}
+
+5.  Kuidas õpetaja saab mind selle eesmärgi saavutamiseks aidata?
+
+    \vspace{0.2\textheight}
+
+6. Minu nimi on \blank{peacecop kalmer:}.
+
+7. Tänane kuupäev on \blank{2024-4-24}.

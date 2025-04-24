@@ -3,5 +3,7 @@ new_session: false
 delete_merged_file: true
 rmd_files: [
   "index.Rmd",
+  "rmd/harjutused.Rmd",
+  "rmd/tagasiside.Rmd",
   "references.Rmd"
 ]

@@ -1,8 +1,12 @@
 # Eneseanalüüs
 
-1.  Milline on minu eesmärk seoses Narva Täiskasvanute kooliga, st miks ma õpin Narva Täiskasvanute Koolis?
+Vastused allolevatele küsimustele aitavad mul ja õpetajal paremat selgust saada minu õppimisprotsessis, et edaspidi tõhusamalt edasi liikuda.
 
-    \vspace{0.2\textheight}
+Vastan igale järgmisele küsimusele ja täidan lüngad jäädes kõigile peale enda ja õpetaja anonüümseks:
+
+1.  Milline on minu eesmärk seoses Narva Täiskasvanute Kooliga (NTK), st miks ma õpin NTK's?
+
+    \vspace{0.1\textheight}
 
 2.  Mida ma olen siiamaani selle eesmärgi saavutamiseks teinud?
 
@@ -20,6 +24,16 @@
 
     \vspace{0.2\textheight}
 
-6. Minu nimi on \blank{peacecop kalmer:}.
+6.  Mitu punkti ma soovin matemaatikaeksamis saavutada? \blank{100.}
 
-7. Tänane kuupäev on \blank{2024-4-24}.
+7.  Millise hinde ma panen enda senisele matemaatikaõppele NTK's ja miks?
+
+    \vspace{0.1\textheight}
+
+8.  Millise hinde ma panen enda õpetajale ja miks?
+
+    \vspace{0.1\textheight}
+
+9. Minu nimi on \blank{peacecop kalmer:}.
+
+10. Tänane kuupäev on \blank{2024-4-29}.

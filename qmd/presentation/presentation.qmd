@@ -3,10 +3,7 @@ author:
   - name: 'peacecop kalmer:'
 bibliography: presentation.bib
 csl: ../../apa-numeric-superscript-brackets.csl
-title: |
-    | Individual experiences with
-    | chlorine dioxide solution
-    | (CDS)
+title: "Õpilaste eneseanalüüs<br> Narva Täiskasvanute Koolis (NTK)<br> 2025"
 output-file: presentation.html
 format:
   revealjs:
@@ -18,7 +15,7 @@ format:
 
 ---
 
-## *Quarto*
+## Eneseanalüüsi periood
 
 ```{r label="preamble"}
 #' This function displays external graphics by making the appropriate conversion aforehead.
@@ -42,57 +39,149 @@ include_external_graphics = function(path) {
   knitr::include_graphics(output)
 }
 
+#' This function builds a string cloud.
+#'
+#' @param strings the list with strings: word and freq
+build_string_cloud <- function(strings) {
+  librarian::shelf(c(
+    "ggwordcloud",
+    "dplyr"
+    # "wordcloud2"
+  ))
+
+  strings <- do.call(
+    rbind,
+    lapply(strings, as.data.frame, stringsAsFactors = FALSE)
+  )
+  strings_mutated <- strings %>%
+    mutate(angle = 45 * sample(-2:2, n(), replace = TRUE, prob = c(1, 1, 4, 1, 1)), freq = ifelse(freq <= 1, 6, 5 + log(freq)*4))
+  # print(strings_mutated)
+  # ggplot(strings_mutated, aes(label = word, size = freq, angle = angle, color = factor(sample.int(10, nrow(strings_mutated), replace = TRUE)),)) +
+  #   geom_text_wordcloud(area_corr = TRUE, rm_outside = FALSE, shape = "square") +
+  #   scale_size_area(max_size = 100, trans = power_trans(1/.7)) +
+  #   theme_minimal()
+# strings_mutated$scaled_freq <- scales::rescale(strings_mutated$freq, to = c(1, 5))
+# strings_mutated$scaled_freq <- mutate(scaled_freq = ifelse(freq <= 2, 6, 5 + log(freq)*4))
+  ggwordcloud2(
+  # strings_mutated |> dplyr::rename(weight = scaled_freq),
+  strings_mutated,
+  size = .5,
+  color = "random-dark",
+  minRotation = -pi/4,
+  maxRotation = pi/4,
+  shuffle = TRUE,
+  rotateRatio = 0.4,
+  shape = "square",
+  ellipticity = .65
+)
+  # wordcloud2(demoFreq)
+  # testframe <- data.frame(word=c("ad1asdf", "bc2fsda"), freq=c(10, 11))
+  # print(strings)
+  # print(testframe)
+  # wordcloud2(testframe)
+  # ggwordcloud2(strings_mutated[, c("word", "freq")], size = 2.5)
+}
+
 ```
 
-- does not link between files,
-- every presentation is separate,
-- looks so much better than *bookdown*-presentations.
+2025-4 kuni 2025-5.
 
-What version of *Quarto* do I have[@how]?
+## Osalejate arv
+
+- *10B*: 8,
+
+- *10F*: 21.
+
+## Miks just NTK?
+
+```{r label="reasons"}
+
+strings <- list(
+  list(
+    word = "hea õppesessioonide plaan",
+    freq = 1
+  ),
+  list(
+    word = "suurepärane õppesessioonide plaan",
+    freq = 1
+  ),
+  list(
+    word = "mõistvad õpetajad",
+    freq = 1
+  ),
+  list(
+    word = "paindlik õpe",
+    freq = 1
+  ),
+  list(
+    word = "saamatus muus koolis",
+    freq = 1
+  ),
+  list(
+    word = "toredad õpetajad",
+    freq = 1
+  ),
+  list(
+    word = "täiskasvanulik suhtumine",
+    freq = 1
+  )
+)
+
+build_string_cloud(strings)
 
 ```
-quarto check
+
+
+## Eesmärk NTK's
+
+```{r label="goals"}
+
+strings <- list(
+  list(
+    word = "11\\. tase",
+    freq = 1
+  ),
+  list(
+    word = "edasiminek",
+    freq = 2
+  ),
+  list(
+    word = "keskharidus",
+    freq = 21
+  ),
+  list(
+    word = "kõrgkool",
+    freq = 2
+  ),
+  list(
+    word = "parem töö",
+    freq = 1
+  ),
+  list(
+    word = "heade tulemustega eksamisooritused",
+    freq = 2
+  ),
+  list(
+    word = "suurepäraste tulemustega eksamisooritused",
+    freq = 1
+  ),
+  list(
+    word = "teadmised hariduseks",
+    freq = 1
+  ),
+  list(
+    word = "rohkem võimalusi tööturul",
+    freq = 2
+  ),
+  list(
+    word = "õppimine",
+    freq = 8
+  )
+)
+
+build_string_cloud(strings)
 
 ```
-
-## Setup
-
-1. For every presentation a subfolder inside the subfolder *qmd*.
-
-2. Link to the presentation in *js.js*:
-
-```
-  let nameOfPresentation = "<name-of-presentation>";
-  createLink(div, "presentation-" + nameOfPresentation, nameOfPresentation + ".html", "<The title of the presentation>");
-
-```
-
-## Preparing for remote controlling
-
-1. Cloning *multiplex* [@a2023_multiplex].
-
-2.  In the *multiplex*'s folder:
-
-    ```
-    npm install reveal-multiplex
-    
-    ```
-    
-3.  Creating the service:
-
-    ```
-    sudo emacs /etc/systemd/system/multiplex.service
-    
-    ```
-    
-4.  Starting the server:
-
-    ```
-    sudo systemctl start multiplex.service
-    
-    ```
-
-5. Directing traffic to port 1948 into the server machine.
 
 ## Remote controlling
 
